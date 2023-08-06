@@ -1,15 +1,12 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import styled from "styled-components";
-import { IconCheckSuccess, OuterContainer } from "../components/helpers";
-import Menu from "../components/Menu";
-import Image from "next/image";
-import { mediaQueries } from "../utils";
-import LinkMain from "../components/Button/LinkMain";
 import Link from "next/link";
-import { useRouter } from "next/dist/client/router";
-import { useCart } from "../hooks";
-import { useApp } from "../context/AppContext";
-import Layout from "../components/Layout";
+import { ReactElement, useEffect } from "react";
+import styled from "styled-components";
+import LinkMain from "../app/components/Button/LinkMain";
+import Layout from "../app/components/Layout";
+import Menu from "../app/components/Menu";
+import { IconCheckSuccess, OuterContainer } from "../app/components/helpers";
+import { useApp } from "../app/context/AppContext";
+import { mediaQueries } from "../utils";
 interface Props {}
 
 export default function Checkout({}: Props): ReactElement {

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import { ITheme } from "../theme";
-import { mediaQueries } from "../utils";
+import { ITheme } from "../../theme";
+import { mediaQueries } from "../../utils";
 export const SDetailNav = styled.nav`
   padding: 1.5rem 0;
   position: fixed;

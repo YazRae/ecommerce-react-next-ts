@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { ICategory } from "../../types";
+import { ICategory } from "../../../types";
 import { SCategoryLabel, SCategoryOverlay } from "../../styles/StyledElements";
 
 interface Props {

@@ -1,35 +1,37 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { SSectionHeading } from "../index";
-import LinkMain from "../../components/Button/LinkMain";
-import { OuterContainer } from "../../components/helpers";
-import Layout from "../../components/Layout";
-import Menu from "../../components/Menu";
-import { useApp } from "../../context/AppContext";
+import LinkMain from "../../app/components/Button/LinkMain";
+import { OuterContainer } from "../../app/components/helpers";
+import Layout from "../../app/components/Layout";
+import Menu from "../../app/components/Menu";
+import { useApp } from "../../app/context/AppContext";
 import { mediaQueries } from "../../utils";
 
 interface Props {}
 
 export default function Orders({}: Props): ReactElement {
   const { orders } = useApp();
+
+  console.log(!orders.length);
+
   if (!orders.length) {
     return (
       <Layout
         title="Orders"
         children={
           <OuterContainer>
-            {/* <SOrderHeader> */}
             <SSectionHeading>My Orders</SSectionHeading>
             <SSectionHeading>No Orders Placed</SSectionHeading>
             <div style={{ marginTop: "2rem" }}></div>
             <LinkMain href="/">Back To Shopping</LinkMain>
-            {/* </SOrderHeader> */}
           </OuterContainer>
         }
       />
     );
   }
   const totalOrders = orders.length;
+
   return (
     <Layout
       title={`${
@@ -41,9 +43,7 @@ export default function Orders({}: Props): ReactElement {
       }`}
       children={
         <OuterContainer>
-          {/* <SOrderHeader> */}
           <SSectionHeading>My Orders</SSectionHeading>
-          {/* </SOrderHeader> */}
           <SOrderContainer>
             {orders.map((order, key) => (
               <SOrderWrapper key={key}>
@@ -59,9 +59,9 @@ export default function Orders({}: Props): ReactElement {
                   <SOrderPriceContainer>
                     <div>
                       <div id="order-count">{order.count}</div>x
-                      <div id="order-cost">₹{order.base_cost}</div>
+                      <div id="order-cost">${order.base_cost}</div>
                     </div>
-                    <div>₹{order.base_cost * order.count}</div>
+                    <div>${order.base_cost * order.count}</div>
                   </SOrderPriceContainer>
                 </SOrderContent>
               </SOrderWrapper>
@@ -87,10 +87,6 @@ const SOrderContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     `)}
 `;
-// const SOrderHeader = styled.div`
-//   margin-top: 2.5rem;
-//   margin-bottom: 2.5rem;
-// `;
 const SOrderWrapper = styled.div`
   display: grid;
   grid-template-columns: 90px 1fr;

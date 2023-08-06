@@ -8,15 +8,15 @@ import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import ButtonAdd from "../../../components/Button/ButtonAdd";
-import ButtonCounter from "../../../components/Button/ButtonCounter";
+import ButtonAdd from "../../../app/components/Button/ButtonAdd";
+import ButtonCounter from "../../../app/components/Button/ButtonCounter";
 import {
   IconCart,
   IconCategory,
   LeftArrow,
   OuterContainer,
-} from "../../../components/helpers";
-import Layout from "../../../components/Layout";
+} from "../../../app/components/helpers";
+import Layout from "../../../app/components/Layout";
 import { useApp } from "../../../context/AppContext";
 import {
   SBaseCost,
@@ -36,7 +36,7 @@ import {
   SOriginalCost,
   SPercentageOff,
   SQuantity,
-} from "../../../styles/StyledElements";
+} from "../../../app/styles/StyledElements";
 import { INotFound, IProduct, IProducutWithCategory } from "../../../types";
 import {
   getPercentageDecreased,
@@ -166,9 +166,9 @@ export default function ProductDetails(
               <h2>{product.name}</h2>
               <SQuantity>{product.base_qty}</SQuantity>
               <div id="price-container">
-                <SBaseCost>₹{product.base_cost.toFixed(2)}</SBaseCost>
+                <SBaseCost>${product.base_cost.toFixed(2)}</SBaseCost>
                 <SOriginalCost>
-                  ₹{product.original_cost.toFixed(2)}
+                  ${product.original_cost.toFixed(2)}
                 </SOriginalCost>
                 {product.base_cost !== product.original_cost && (
                   <SPercentageOff>{percentage}% off</SPercentageOff>

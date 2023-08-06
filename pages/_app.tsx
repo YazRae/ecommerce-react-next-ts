@@ -1,9 +1,9 @@
 import { AppProps } from "next/app";
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../app/context/AppContext";
 import { useCart, useOrders } from "../hooks";
-import "../styles/globals.css";
+import "../app/styles/globals.css";
 import theme from "../theme";
 
 function MyApp({ Component, pageProps }: AppProps) {

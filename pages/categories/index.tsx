@@ -2,16 +2,16 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Link from "next/link";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { OuterContainer } from "../../components/helpers";
-import Layout from "../../components/Layout";
-import Menu from "../../components/Menu";
-import SearchBarFixed from "../../components/SearchBar/SearchBarFixed";
+import { OuterContainer } from "../../app/components/helpers";
+import Layout from "../../app/components/Layout";
+import Menu from "../../app/components/Menu";
+import SearchBarFixed from "../../app/components/SearchBar/SearchBarFixed";
 import {
   SBottomSpacer,
   SCategoryLabel,
   SCategoryOverlay,
   SProductGrid,
-} from "../../styles/StyledElements";
+} from "../../app/styles/StyledElements";
 import { ITopCategories } from "../../types";
 import { getCategoryList, mediaQueries } from "../../utils";
 

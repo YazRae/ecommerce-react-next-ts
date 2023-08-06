@@ -5,8 +5,8 @@ import ThemedStyledFunction from "styled-components";
 import styled from "styled-components";
 import { useApp } from "../context/AppContext";
 import { SMenuIconBadge } from "../styles/StyledElements";
-import { ICartProduct } from "../types";
-import { getTotalItems, mediaQueries } from "../utils";
+import { ICartProduct } from "../../types";
+import { getTotalItems, mediaQueries } from "../../utils";
 import {
   IconBagActive,
   IconBagInactive,

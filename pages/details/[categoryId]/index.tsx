@@ -5,16 +5,16 @@ import {
   GetStaticPropsContext,
 } from "next";
 import React, { ReactElement } from "react";
-import { OuterContainer } from "../../../components/helpers";
-import Layout from "../../../components/Layout";
-import Menu from "../../../components/Menu";
-import NotFound from "../../../components/NotFound";
-import ProductList from "../../../components/Products/ProductList";
-import SearchBar from "../../../components/SearchBar/SearchBar";
+import { OuterContainer } from "../../../app/components/helpers";
+import Layout from "../../../app/components/Layout";
+import Menu from "../../../app/components/Menu";
+import NotFound from "../../../app/components/NotFound";
+import ProductList from "../../../app/components/Products/ProductList";
+import SearchBar from "../../../app/components/SearchBar/SearchBar";
 import {
   SBottomSpacer,
   SProductSectionHeader,
-} from "../../../styles/StyledElements";
+} from "../../../app/styles/StyledElements";
 import { IAllProducts } from "../../../types";
 import { getCategory, getCategoryList } from "../../../utils";
 

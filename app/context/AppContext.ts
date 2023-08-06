@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { ICartProduct, IProduct } from "../types";
+import { ICartProduct, IProduct } from "../../types";
 
 interface IGlobalContext {
   cart: ICartProduct[];

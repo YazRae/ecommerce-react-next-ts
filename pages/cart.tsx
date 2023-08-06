@@ -1,20 +1,20 @@
-import Link from "next/link";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
-import ButtonCounter from "../components/Button/ButtonCounter";
-import LinkMain from "../components/Button/LinkMain";
-import EmptyBag from "../components/EmptyBag";
-import { OuterContainer } from "../components/helpers";
-import Layout from "../components/Layout";
-import Menu from "../components/Menu";
-import { useApp } from "../context/AppContext";
-import { SBadge, SBottomSpacer } from "../styles/StyledElements";
+import ButtonCounter from "../app/components/Button/ButtonCounter";
+import LinkMain from "../app/components/Button/LinkMain";
+import EmptyBag from "../app/components/EmptyBag";
+import Layout from "../app/components/Layout";
+import Menu from "../app/components/Menu";
+import { OuterContainer } from "../app/components/helpers";
+import { useApp } from "../app/context/AppContext";
+import { SBadge, SBottomSpacer } from "../app/styles/StyledElements";
 import { getTotalItems, mediaQueries } from "../utils";
 
 interface Props {}
 
 export default function Cart({}: Props): ReactElement {
   const { cart, addToCart, removeFromCart } = useApp();
+
   const total = cart.reduce((acc, curr) => {
     return acc + curr.base_cost * curr.count;
   }, 0);
@@ -58,7 +58,7 @@ export default function Cart({}: Props): ReactElement {
                       <h2>{item.name.toLowerCase()}</h2>
                       <small>{item.base_qty}</small>
                       <SItemPriceContainer>
-                        <span>₹</span>{" "}
+                        <span>$</span>{" "}
                         <SItemPrice>
                           {" " + item.base_cost.toFixed(2)}
                         </SItemPrice>
@@ -104,10 +104,6 @@ export default function Cart({}: Props): ReactElement {
     />
   );
 }
-const SCartHeader = styled.div`
-  display: flex;
-  grid-column: 1/13;
-`;
 const SCartGrid = styled.div`
   display: flex;
   flex-direction: column;
@@ -118,6 +114,14 @@ const SCartGrid = styled.div`
   grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
     `)}
+`;
+const SCartHeader = styled.div`
+  display: flex;
+  grid-column: 1/13;
+`;
+const SCartHeading = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  font-weight: 600;
 `;
 const SCartRow = styled.div`
   grid-column: 1/8;
@@ -136,10 +140,6 @@ const SCartCheckout = styled.div`
   justify-self: flex-end;
 
   `)}
-`;
-const SCartHeading = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xl};
-  font-weight: 600;
 `;
 const SCartItem = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing["8"]};

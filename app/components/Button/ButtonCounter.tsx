@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { mediaQueries } from "../../utils";
+import { mediaQueries } from "../../../utils";
 import { IconMinus, IconPlus } from "../helpers";
 interface Props {
   count: number;
@@ -33,7 +33,6 @@ export default function ButtonCounter({
     </SButtonCounter>
   );
 }
-
 const SButtonCounter = styled.div<{ $buttonLarge: boolean }>`
   border: 1px solid ${({ theme }) => theme.colors.accent};
   width: ${({ $buttonLarge }) => ($buttonLarge ? "100%" : "97.5px")};
@@ -44,6 +43,19 @@ const SButtonCounter = styled.div<{ $buttonLarge: boolean }>`
   align-items: center;
   border-radius: ${({ $buttonLarge }) =>
     $buttonLarge ? "0.625rem" : ".25rem"};
+`;
+const SIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  padding: 0.5rem 0;
+  flex: 1;
+  cursor: pointer;
+  /* transition: all 0.3s;
+  &:hover {
+    background-color: rgba(20, 110, 180, 0.1);
+  } */
 `;
 const SProductCount = styled.p<{ $buttonLarge: boolean }>`
   padding: ${({ $buttonLarge }) => ($buttonLarge ? "1rem 0 " : "0.4rem 0")};
@@ -59,17 +71,4 @@ const SProductCount = styled.p<{ $buttonLarge: boolean }>`
     mediaQueries("sm")(`
     font-size: ${theme.fontSize.base};
   `)}
-`;
-const SIconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center;
-  padding: 0.5rem 0;
-  flex: 1;
-  cursor: pointer;
-  /* transition: all 0.3s;
-  &:hover {
-    background-color: rgba(20, 110, 180, 0.1);
-  } */
 `;

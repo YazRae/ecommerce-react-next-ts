@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { mediaQueries } from "../utils";
+import { mediaQueries } from "../../utils";
 import LinkMain from "./Button/LinkMain";
 import { IllustrationBag } from "./helpers";
 

@@ -1,15 +1,16 @@
+"use client";
+
 import { GetStaticProps } from "next";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import styled from "styled-components";
-import { CategoryList } from "../components/Category";
-import Menu from "../components/Menu";
-import SearchBar from "../components/SearchBar/SearchBar";
+import { CategoryList } from "../app/components/Category";
+import Layout from "../app/components/Layout";
+import Menu from "../app/components/Menu";
+import { ProductSection } from "../app/components/Products";
+import SearchBar from "../app/components/SearchBar/SearchBar";
+import { OuterContainer } from "../app/components/helpers";
 import { ITopCategories, ITopProducts } from "../types";
 import { getData } from "../utils";
-import { ProductSection } from "../components/Products";
-import { useApp } from "../context/AppContext";
-import { OuterContainer } from "../components/helpers";
-import Layout from "../components/Layout";
 
 type HomeProps = IStaticProps;
 interface IStaticProps {
@@ -44,7 +45,6 @@ export const getStaticProps: GetStaticProps<IStaticProps> = async () => {
   const data = getData();
   return { props: data };
 };
-
 export const SSectionHeading = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: bold;

@@ -14,8 +14,8 @@ import {
   SProductLink,
   SProductPrice,
 } from "../../styles/StyledElements";
-import { IProduct } from "../../types";
-import { getPercentageDecreased, mediaQueries } from "../../utils";
+import { IProduct } from "../../../types";
+import { getPercentageDecreased, mediaQueries } from "../../../utils";
 import ButtonAdd from "../Button/ButtonAdd";
 import ButtonCounter from "../Button/ButtonCounter";
 
@@ -58,17 +58,17 @@ export default function ProductList({
               href={`/details/${category_id}/${product.id}`}
             >
               <SProductLink>
-                {/* <div style={{ width: "100%" }}> */}
-                <LazyLoadImage
-                  effect="blur"
-                  delayTime={500}
-                  className="product-image"
-                  src={product.image}
-                  alt={product.name}
-                  placeholder={<Placeholder />}
-                  srcSet={product.image}
-                />
-                {/* </div> */}
+                <div style={{ width: "100%" }}>
+                  <LazyLoadImage
+                    effect="blur"
+                    delayTime={500}
+                    className="product-image"
+                    src={product.image}
+                    alt={product.name}
+                    placeholder={<Placeholder />}
+                    srcSet={product.image}
+                  />
+                </div>
                 {/* <SProductImage
                   src={product.image}
                   alt={product.name}
@@ -84,18 +84,14 @@ export default function ProductList({
                 key={product.id}
                 href={`/details/${category_id}/${product.id}`}
               >
-                {/* <a> */}
-                {/* <h2> */}
-                {product.name.toLowerCase()}
-                {/* </h2> */}
-                {/* </a> */}
+                <small>{product.name.toLowerCase()}</small>
               </Link>
               <small>{product.base_qty}</small>
               <SProductPrice>
                 <SPriceContainer>
-                  <div>₹{product.base_cost}</div>
+                  <div>${product.base_cost}</div>
                   {!arePricesSame && (
-                    <div id="base-cost">₹{product.original_cost}</div>
+                    <div id="base-cost">${product.original_cost}</div>
                   )}
                 </SPriceContainer>
                 {isInCart ? (

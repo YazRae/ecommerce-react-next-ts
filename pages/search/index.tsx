@@ -1,13 +1,16 @@
 import { GetServerSidePropsContext } from "next";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import LinkMain from "../../components/Button/LinkMain";
-import { IllustrationNotFound, OuterContainer } from "../../components/helpers";
-import Layout from "../../components/Layout";
-import NotFound from "../../components/NotFound";
-import ProductList from "../../components/Products/ProductList";
-import SearchBarFixed from "../../components/SearchBar/SearchBarFixed";
-import { SBottomSpacer } from "../../styles/StyledElements";
+import LinkMain from "../../app/components/Button/LinkMain";
+import {
+  IllustrationNotFound,
+  OuterContainer,
+} from "../../app/components/helpers";
+import Layout from "../../app/components/Layout";
+import NotFound from "../../app/components/NotFound";
+import ProductList from "../../app/components/Products/ProductList";
+import SearchBarFixed from "../../app/components/SearchBar/SearchBarFixed";
+import { SBottomSpacer } from "../../app/styles/StyledElements";
 import { IProduct } from "../../types";
 import { findProducts } from "../../utils";
 

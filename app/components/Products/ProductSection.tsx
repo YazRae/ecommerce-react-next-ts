@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { SProductSection } from "../../styles/StyledElements";
-import { ITopProducts } from "../../types";
+import { ITopProducts } from "../../../types";
 import ProductList from "./ProductList";
 import ProductSectionHeader from "./ProductSectionHeader";
 
