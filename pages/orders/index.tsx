@@ -13,8 +13,6 @@ interface Props {}
 export default function Orders({}: Props): ReactElement {
   const { orders } = useApp();
 
-  console.log(!orders.length);
-
   if (!orders.length) {
     return (
       <Layout
@@ -30,17 +28,10 @@ export default function Orders({}: Props): ReactElement {
       />
     );
   }
-  const totalOrders = orders.length;
 
   return (
     <Layout
-      title={`${
-        !!totalOrders
-          ? totalOrders === 1
-            ? `${totalOrders} Order`
-            : `${totalOrders} Orders`
-          : "Orders"
-      }`}
+      title={`Orders`}
       children={
         <OuterContainer>
           <SSectionHeading>My Orders</SSectionHeading>
@@ -57,10 +48,8 @@ export default function Orders({}: Props): ReactElement {
                     {order.count > 1 ? " items" : " item"}
                   </small>
                   <SOrderPriceContainer>
-                    <div>
-                      <div id="order-count">{order.count}</div>x
-                      <div id="order-cost">${order.base_cost}</div>
-                    </div>
+                    <div id="order-count">{order.count}</div>x
+                    <div id="order-cost">${order.base_cost}</div>
                     <div>${order.base_cost * order.count}</div>
                   </SOrderPriceContainer>
                 </SOrderContent>
@@ -73,10 +62,6 @@ export default function Orders({}: Props): ReactElement {
     />
   );
 }
-const SOrderImage = styled.img`
-  width: 100%;
-  border-radius: 8px;
-`;
 const SOrderContainer = styled.div`
   display: grid;
   gap: 2rem;
@@ -160,4 +145,8 @@ const SOrderPriceContainer = styled.div`
   & #order-cost {
     margin-left: ${({ theme }) => theme.spacing["2"]};
   }
+`;
+const SOrderImage = styled.img`
+  width: 100%;
+  border-radius: 8px;
 `;
