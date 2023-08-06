@@ -17,7 +17,7 @@ import {
   OuterContainer,
 } from "../../../app/components/helpers";
 import Layout from "../../../app/components/Layout";
-import { useApp } from "../../../context/AppContext";
+import { useApp } from "../../../app/context/AppContext";
 import {
   SBaseCost,
   SBottomSpacer,
