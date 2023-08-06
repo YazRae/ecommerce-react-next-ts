@@ -43,7 +43,7 @@ export const SCategoryContainer = styled.div`
 export const SCategoryItem = styled.div`
   display: inline-block;
   position: relative;
-  &:not(:last-child) {
+  & :not(:last-child) {
     margin-right: ${({ theme }) => theme.spacing["4"]};
   }
 `;

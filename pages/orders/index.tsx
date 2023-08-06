@@ -48,7 +48,7 @@ export default function Orders({}: Props): ReactElement {
                     {order.count > 1 ? " items" : " item"}
                   </small>
                   <SOrderPriceContainer>
-                    <div id="order-count">{order.count}</div>x
+                    <div id="order-count">{order.count}</div>
                     <div id="order-cost">${order.base_cost}</div>
                     <div>${order.base_cost * order.count}</div>
                   </SOrderPriceContainer>

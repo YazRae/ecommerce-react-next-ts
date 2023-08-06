@@ -70,7 +70,7 @@ const SCategoryItem = styled.div`
   width: 100%;
   position: relative;
   /* cursor: pointer; */
-  &:not(:last-child) {
+  & :not(:last-child) {
     margin-right: ${({ theme }) => theme.spacing["4"]};
   }
   & img {
