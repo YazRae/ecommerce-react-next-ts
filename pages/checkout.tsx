@@ -31,7 +31,7 @@ export default function Checkout({}: Props): ReactElement {
               <div>Thank you for shopping with us</div>
               <SButtonContainer>
                 <Link href="/orders" passHref>
-                  <SLinkOrders>See All Orders</SLinkOrders>
+                  <SLinkOrders>More Orders</SLinkOrders>
                 </Link>
                 <LinkMain href="/">Continue Shopping</LinkMain>
               </SButtonContainer>

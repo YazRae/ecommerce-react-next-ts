@@ -48,12 +48,14 @@ export default function Orders({}: Props): ReactElement {
                   <SOrderImage src={order.image} srcSet={order.image} />
                 </SImageContainer>
                 <SOrderContent>
-                  <h2>{order.name.toLowerCase()}</h2>
-                  <small>{(order.count, " items")}</small>
+                  <div>
+                    <h2>{"Item"}</h2>
+                    <small>{order.name.toLowerCase()}</small>
+                  </div>
                   <SOrderPriceContainer>
                     <div id="order-count">{order.count}</div>
                     <div id="order-cost">${order.base_cost}</div>
-                    <div>${order.base_cost * order.count}</div>
+                    <div>Total ${order.base_cost * order.count}</div>
                   </SOrderPriceContainer>
                 </SOrderContent>
               </SOrderWrapper>
