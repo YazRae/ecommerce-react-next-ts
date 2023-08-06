@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 import { SSectionHeading } from "../index";
 import LinkMain from "../../app/components/Button/LinkMain";
@@ -7,13 +7,20 @@ import Layout from "../../app/components/Layout";
 import Menu from "../../app/components/Menu";
 import { useApp } from "../../app/context/AppContext";
 import { mediaQueries } from "../../utils";
+import { ICartProduct } from "../../types";
 
 interface Props {}
 
 export default function Orders({}: Props): ReactElement {
   const { orders } = useApp();
 
-  if (!orders.length) {
+  const [value, setValue] = useState<ICartProduct[]>();
+
+  useEffect(() => {
+    setValue(orders);
+  }, [orders]);
+
+  if (!value?.length) {
     return (
       <Layout
         title="Orders"
@@ -28,7 +35,6 @@ export default function Orders({}: Props): ReactElement {
       />
     );
   }
-
   return (
     <Layout
       title={`Orders`}
@@ -36,17 +42,14 @@ export default function Orders({}: Props): ReactElement {
         <OuterContainer>
           <SSectionHeading>My Orders</SSectionHeading>
           <SOrderContainer>
-            {orders.map((order, key) => (
+            {value?.map((order, key) => (
               <SOrderWrapper key={key}>
                 <SImageContainer>
                   <SOrderImage src={order.image} srcSet={order.image} />
                 </SImageContainer>
                 <SOrderContent>
                   <h2>{order.name.toLowerCase()}</h2>
-                  <small>
-                    {order.count}
-                    {order.count > 1 ? " items" : " item"}
-                  </small>
+                  <small>{(order.count, " items")}</small>
                   <SOrderPriceContainer>
                     <div id="order-count">{order.count}</div>
                     <div id="order-cost">${order.base_cost}</div>
@@ -85,9 +88,6 @@ const SOrderWrapper = styled.div`
   & div {
     width: 100%;
   }
-`;
-const SImageContainer = styled.div`
-  width: 100%;
 `;
 const SOrderContent = styled.div`
   & h2 {
@@ -145,6 +145,9 @@ const SOrderPriceContainer = styled.div`
   & #order-cost {
     margin-left: ${({ theme }) => theme.spacing["2"]};
   }
+`;
+const SImageContainer = styled.div`
+  width: 100%;
 `;
 const SOrderImage = styled.img`
   width: 100%;

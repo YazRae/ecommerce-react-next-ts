@@ -19,9 +19,7 @@ export default function CategoryList({ categories }: Props): ReactElement {
               alt=""
               srcSet={category.image}
             />
-            <SCategoryOverlay>
-              <SCategoryLabel>{category.name.toLowerCase()}</SCategoryLabel>
-            </SCategoryOverlay>
+            <SCategoryLabel>{category.name.toLowerCase()}</SCategoryLabel>
           </SCategoryItem>
         </Link>
       ))}

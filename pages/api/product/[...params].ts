@@ -4,13 +4,13 @@ import { INotFound, ProductResponse, IProduct } from "../../../types";
 
 export default (
   req: NextApiRequest,
-  res: NextApiResponse<INotFound | ProductResponse>,
+  res: NextApiResponse<INotFound | ProductResponse>
 ) => {
   if ("params" in req.query && Array.isArray(req.query.params)) {
     const [categoryId, productId] = req.query.params;
 
     const foundCategory = data.all_products.find(
-      (prod) => prod.category_id === Number(categoryId),
+      (prod) => prod.category_id === Number(categoryId)
     );
     if (!foundCategory) {
       res.statusCode = 404;
@@ -19,7 +19,7 @@ export default (
     // const products =
     if (Array.isArray(foundCategory.products)) {
       const foundProduct = (foundCategory.products as Array<IProduct>).find(
-        (el) => el.id === Number(productId),
+        (el) => el.id === Number(productId)
       );
       if (!foundProduct) {
         res.statusCode = 404;
